@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="IMOS.Views.Principal.CrearClientePage"
+    BackgroundColor="#EDEDED"
+    xmlns:listcontrols="clr-namespace:IMOS.Controls;assembly=IMOS"
+    Title="Nuevo Cliente">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Icon="add.png"
+            Command="{Binding AddClienteCommand}"
+            Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                Margin="30,0"
+                IsVisible="{Binding IsVisibleAdd}">
+                <ScrollView
+                    VerticalScrollBarVisibility="Never">
+                    <StackLayout>
+                    <StackLayout>
+                    <Label
+                        Text="Crear nuevo cliente"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        VerticalOptions="Center"
+                        VerticalTextAlignment="Center"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Placeholder="Rut"
+                        Keyboard="Default"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding RutCliente}"/>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Keyboard="Default"
+                        Placeholder="Nombre"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding NombreCliente}"/>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Keyboard="Default"
+                        Placeholder="RazonSocial"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding RazonSocialCliente}"/>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Keyboard="Default"
+                        Placeholder="Giro"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding GiroCliente}"/>
+                    <Entry
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Placeholder="Dias pago"
+                        Keyboard="Numeric"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding DiasPagoCliente}"/>
+                    <Button
+                        Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        Grid.Column="0"
+                        TextColor="White"
+                        BackgroundColor="#008080"
+                        Text="Agregar"
+                        Command="{Binding InsertClienteCommand}"/>
+                </Grid> 
+                </StackLayout>  
+                </ScrollView>      
+            </StackLayout>
+        <listcontrols:CustomListView
+            ItemClickCommand="{Binding ItemClickCommand}"
+            Footer=""
+            Header=""
+            SeparatorVisibility="None"
+            HasUnevenRows="true"
+            IsRefreshing="{Binding IsRefreshing}"
+            IsPullToRefreshEnabled="true"
+            RefreshCommand="{Binding RefreshCommandList}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding ListClientes}">
+            <listcontrols:CustomListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame
+                            HasShadow="false"
+                            Margin="10,5"
+                            BackgroundColor="White"
+                            Padding="10,10"
+                            CornerRadius="8">
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Rut:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Rut}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Nombre:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Nombre}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Giro:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Giro}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Dias Pago:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding DiasPago}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </listcontrols:CustomListView.ItemTemplate>
+        </listcontrols:CustomListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

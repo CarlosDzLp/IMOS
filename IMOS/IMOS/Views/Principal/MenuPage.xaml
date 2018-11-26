@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IMOS.Views.Principal.MenuPage"
+             BackgroundColor="White"
+             Title="MenuLateral"
+             x:Name="TheMenuPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout
+                    HeightRequest="200"
+                    BackgroundColor="#008080">
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            VerticalOptions="Center"
+                            FontSize="30"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            Text="Bienvenido"/>
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            VerticalOptions="Center"
+                            FontSize="30"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            x:Name="txtEmpresa"/>
+                    </StackLayout>
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">                    
+                        <Label
+                            x:Name="LblNombreCompleto"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            VerticalOptions="Center"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="White"/>
+                    </StackLayout>
+                </StackLayout>
+                <ScrollView
+                    Orientation="Vertical"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalScrollBarVisibility="Never">
+                    <StackLayout>
+                        <!-- comienza el menu de ventas -->
+                        <StackLayout
+                            Padding="20,15,0,15"
+                            BackgroundColor="#EDEDED">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ClickVentas}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                Text="Ventas"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        
+                        <StackLayout
+                            IsVisible="{Binding IsContentVenta}">
+                            <StackLayout
+                            Padding="30,10,0,10"
+                            IsVisible="{Binding IsOpenDay}">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding CrearVentaCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                Text="Abrir Dia"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        
+                        <StackLayout
+                            Padding="30,10,0,10"
+                            IsVisible="{Binding IsCloseDay}">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding CerrarVentacommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                Text="Cerrar Dia"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        
+                        <StackLayout
+                            Padding="30,10,0,10"
+                            IsVisible="{Binding IsVentasDay}">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding VentasCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                Text="Ventas"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        </StackLayout>
+                        <!-- termina el menu de ventas -->
+                        
+                        <!-- comienza el menu de clientes -->
+                        <StackLayout
+                            IsEnabled="{Binding IsEnabledClientes}"
+                            Padding="20,15,0,15"
+                            BackgroundColor="#EDEDED">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ClickClientes}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                Text="Clientes"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout
+                            Padding="30,10,0,10"
+                            IsVisible="{Binding IsConsultar}">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ConsultarClienteCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                Text="Consultar"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout
+                            Padding="30,10,0,10"
+                            IsVisible="{Binding IsNuevocliente}">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding NuevoClienteCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                Text="Nuevo Cliente"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        <!-- termina el menu de clientes -->
+                        
+                        <!-- comienza el menu de reportes -->
+                        <StackLayout
+                            IsEnabled="{Binding IsEnabledReportes}"
+                            Padding="20,15,0,15"
+                            BackgroundColor="#EDEDED">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ClickReportes}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label
+                                Text="Reportes"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout
+                            Padding="30,10,0,10"
+                            IsVisible="{Binding IsCobranza}">
+                            <Label
+                                Text="Cobranza"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout
+                            Padding="30,10,0,10"
+                            IsVisible="{Binding IsInventario}">
+                            <Label
+                                Text="Inventario"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        <!-- termina el menu de reportes -->
+                    </StackLayout>
+                </ScrollView>
+                <StackLayout
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout
+                        Padding="10,20"
+                        BackgroundColor="#EDEDED"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="ClickSincronizacion"/>
+                        </StackLayout.GestureRecognizers>
+                        <Label
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontSize="Medium"
+                            FontAttributes="Bold"
+                            Text="Actualizar"
+                            TextColor="Black"/>
+                    </StackLayout>
+                    <StackLayout
+                        Padding="10,20"
+                        BackgroundColor="#EDEDED"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="clickCerrarSesion"/>
+                        </StackLayout.GestureRecognizers>
+                        <Label
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontSize="Medium"
+                            FontAttributes="Bold"
+                            Text="Cerrar Sesion"
+                            TextColor="Black"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="IMOS.Views.Principal.ClienteDetalleDireccionesPage"
+    xmlns:listcontrols="clr-namespace:IMOS.Controls;assembly=IMOS"
+    Title="{Binding TitleCliente}"
+    BackgroundColor="#EDEDED">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Icon="add.png"
+            Command="{Binding AddDireccionCommand}"
+            Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout
+                Margin="20,0"
+                IsVisible="{Binding IsVisibleAddDirecciones}">
+                <StackLayout>
+                    <Label
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        Text="Alta direcciones"
+                        TextColor="Black"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Placeholder="Nombre"
+                        Keyboard="Default"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding Nombre}"/>
+                <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                    Keyboard="Numeric"
+                    Placeholder="Telefono"
+                    PlaceholderColor="Gray"
+                    TextColor="Black"
+                    Text="{Binding Telefono}"/>
+                <Entry
+                        Grid.Row="1"
+                        Grid.Column="0"
+                    Keyboard="Default"
+                    Placeholder="Direccion"
+                    PlaceholderColor="Gray"
+                    TextColor="Black"
+                    Text="{Binding Direccion}"/>
+                <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                    Keyboard="Default"
+                    Placeholder="Pais"
+                    PlaceholderColor="Gray"
+                    TextColor="Black"
+                    Text="{Binding Pais}"/>
+                <Entry
+                        Grid.Row="2"
+                        Grid.Column="0"
+                    Placeholder="Region"
+                    Keyboard="Default"
+                    PlaceholderColor="Gray"
+                    TextColor="Black"
+                    Text="{Binding Region}"/>
+                <Entry
+                        Grid.Row="2"
+                        Grid.Column="1"
+                    Placeholder="Comuna"
+                    Keyboard="Default"
+                    PlaceholderColor="Gray"
+                    TextColor="Black"
+                    Text="{Binding Comuna}"/>
+                <Entry
+                        Grid.Row="3"
+                        Grid.Column="0"
+                    Placeholder="Ciudad"
+                    Keyboard="Default"
+                    PlaceholderColor="Gray"
+                    TextColor="Black"
+                    Text="{Binding Ciudad}"/>
+                <Button
+                        Grid.Row="3"
+                        Grid.Column="1"
+                    TextColor="White"
+                    BackgroundColor="#008080"
+                    Text="Agregar"
+                    Command="{Binding InsertDireccionesCommand}"/>
+                </Grid>
+            </StackLayout>
+            <listcontrols:CustomListView
+            Footer=""
+            Header=""
+            SeparatorVisibility="None"
+            HasUnevenRows="true"
+            IsRefreshing="{Binding IsRefreshing}"
+            IsPullToRefreshEnabled="true"
+            RefreshCommand="{Binding RefreshCommandList}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding ListDirecciones}">
+            <listcontrols:CustomListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame
+                            HasShadow="false"
+                            Margin="10,5"
+                            BackgroundColor="White"
+                            Padding="10,10"
+                            CornerRadius="8">
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Nombre:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Nombre}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Telefono:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Telefono}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Direccion:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Direccion}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Pais:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Pais}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Region:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Region}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="5"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Comuna:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Comuna}"/>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Row="6"
+                                        Grid.Column="0"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="Ciudad:"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            HorizontalOptions="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="Black"
+                                            Text="{Binding Ciudad}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </listcontrols:CustomListView.ItemTemplate>
+        </listcontrols:CustomListView>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

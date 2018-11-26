@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<popup:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="IMOS.Views.Principal.Popup.AddProductoPopup"
+    xmlns:control="clr-namespace:IMOS.Controls;assembly=IMOS"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <StackLayout
+        VerticalOptions="Center">
+        <Frame Margin="20" Padding="15,30">
+           <StackLayout>
+                <StackLayout
+                    Margin="0"
+                    Padding="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="Large"
+                        TextColor="Black"
+                        Text="Producto:"/>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        TextColor="Black"
+                        Text="{Binding NombreProducto}"/>
+                </StackLayout>
+                <control:CustomPicker
+                    ItemsSource="{Binding ListVenta}"
+                    ItemDisplayBinding="{Binding NombreVenta}"
+                    SelectedItem="{Binding Venta}"
+                    Title="Seleccione la venta"
+                    Image="arrow"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Keyboard="Numeric"
+                        Placeholder="Cantidad"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding Cantidad}"/>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Keyboard="Numeric"
+                        Placeholder="Precio"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding Precio}"
+                        IsEnabled="false"/>
+                    <Entry
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Keyboard="Numeric"
+                        Placeholder="Valor"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding Valor}"
+                        IsEnabled="false"/>
+                    <Button
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Text="Guardar"
+                        TextColor="White"
+                        BackgroundColor="Teal"
+                        Command="{Binding GuardarVentaCommand}"/>
+                </Grid>
+            </StackLayout>  
+        </Frame>
+    </StackLayout>
+</popup:PopupPage>

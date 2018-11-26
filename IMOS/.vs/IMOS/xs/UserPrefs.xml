@@ -1,0 +1,24 @@
+﻿<Properties StartupConfiguration="{834503ED-1FA7-4087-9A14-924DA28F6227}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="IMOS" expanded="True">
+            <Node name="IMOS.Android" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.IMOS.Android AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" PreferredExecutionTarget="Android.huaweip9" />
+  <MonoDevelop.Ide.ItemProperties.IMOS.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B9675B29-B31A-4029-93B5-CFA41035003B" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/carlosdiaz/Desktop/IMOS/IMOS/IMOS/ViewModels/Principal/CrearClientePageViewModel.cs" relfile="IMOS/ViewModels/Principal/CrearClientePageViewModel.cs" line="85" column="1" />
+      <Breakpoint file="/Users/carlosdiaz/Desktop/IMOS/IMOS/IMOS/ViewModels/Principal/CrearClientePageViewModel.cs" relfile="IMOS/ViewModels/Principal/CrearClientePageViewModel.cs" line="97" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

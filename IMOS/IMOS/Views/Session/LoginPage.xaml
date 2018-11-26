@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="IMOS.Views.Session.LoginPage"
+    BackgroundColor="White"
+    Title="Iniciar sesion">
+    <ContentPage.Content>
+        <ScrollView
+            VerticalScrollBarVisibility="Never"
+            Orientation="Vertical">
+            <Frame
+                HasShadow="false"
+                BackgroundColor="#EDEDED"
+                Margin="30,20"
+                VerticalOptions="Center">
+                <StackLayout
+                    BackgroundColor="#EDEDED"
+                    Spacing="20"
+                    Orientation="Vertical"
+                    VerticalOptions="Center">
+                    <Image
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Source="user.png"/>
+                    <Entry 
+                        PlaceholderColor="Gray"
+                        Placeholder="Rut"
+                        TextColor="Black"
+                        Text="{Binding Rut}"/>
+                    <Entry
+                        Placeholder="Usuario"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding Usuario}"/>
+                    <Entry
+                        IsPassword="true"
+                        Placeholder="Clave"
+                        PlaceholderColor="Gray"
+                        TextColor="Black"
+                        Text="{Binding Clave}"/>
+                    <Button
+                        CornerRadius="8"
+                        BackgroundColor="Teal"
+                        TextColor="White"
+                        Text="Iniciar Sesion"
+                        Command="{Binding LoginCommand}"/>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
